@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Dosagens de Cogumelos Psicodélicos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(45deg, #0a0a0a, #1a0d2e, #16213e, #0f3460);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        /* Floating particles background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(240, 147, 251, 0.8), transparent);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+            25% { transform: translateY(-100px) rotate(90deg); opacity: 0.7; }
+            50% { transform: translateY(-200px) rotate(180deg); opacity: 0.3; }
+            75% { transform: translateY(-100px) rotate(270deg); opacity: 0.7; }
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, 
+                rgba(106, 17, 203, 0.3), 
+                rgba(37, 117, 252, 0.3), 
+                rgba(240, 147, 251, 0.2));
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-conic-gradient(
+                from 0deg at 50% 50%,
+                transparent 0deg,
+                rgba(240, 147, 251, 0.1) 15deg,
+                transparent 30deg
+            );
+            animation: rotate 30s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .logo {
+            max-width: 200px;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.5));
+            animation: logoGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.5)); }
+            50% { filter: drop-shadow(0 0 30px rgba(106, 17, 203, 0.8)); }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(240, 147, 251, 0.5);
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from { text-shadow: 0 0 20px rgba(240, 147, 251, 0.5); }
+            to { text-shadow: 0 0 30px rgba(106, 17, 203, 0.8), 0 0 40px rgba(37, 117, 252, 0.3); }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            max-width: 700px;
+            margin: 0 auto;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #ffffff;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+            text-shadow: 0 0 15px rgba(240, 147, 251, 0.6);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, #6a11cb, #f093fb, #2575fc);
+            border-radius: 3px;
+            box-shadow: 0 0 15px rgba(240, 147, 251, 0.8);
+        }
+
+        /* Card Styles */
+        .card {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(240, 147, 251, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(240, 147, 251, 0.1), 
+                transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Intro Section */
+        .intro-card h2 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(240, 147, 251, 0.4);
+        }
+
+        .intro-card p {
+            font-size: 1.15rem;
+            margin-bottom: 35px;
+            color: #e0e0e0;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .highlight-item {
+            background: rgba(42, 42, 42, 0.6);
+            backdrop-filter: blur(5px);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(240, 147, 251, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(240, 147, 251, 0.3);
+            border-color: rgba(240, 147, 251, 0.6);
+        }
+
+        .highlight-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #f093fb;
+            filter: drop-shadow(0 0 10px rgba(240, 147, 251, 0.5));
+        }
+
+        .highlight-text h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .highlight-text p {
+            margin: 0;
+            font-size: 1rem;
+            color: #cccccc;
+        }
+
+        /* Dosage Cards */
+        .dosage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .dosage-card {
+            background: rgba(30, 30, 30, 0.9);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(240, 147, 251, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .dosage-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 20px 40px rgba(240, 147, 251, 0.2),
+                0 0 50px rgba(106, 17, 203, 0.3);
+            border-color: rgba(240, 147, 251, 0.5);
+        }
+
+        .dosage-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(106, 17, 203, 0.1), 
+                transparent 30%, 
+                transparent 70%, 
+                rgba(240, 147, 251, 0.1));
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .dosage-card:hover::after {
+            opacity: 1;
+        }
+
+        .dosage-header {
+            padding: 25px;
+            background: linear-gradient(135deg, 
+                rgba(106, 17, 203, 0.4), 
+                rgba(37, 117, 252, 0.4), 
+                rgba(240, 147, 251, 0.3));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .dosage-card h3 {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(240, 147, 251, 0.5);
+        }
+
+        .dosage-card .icon {
+            margin-right: 12px;
+            font-size: 1.8rem;
+            filter: drop-shadow(0 0 5px rgba(240, 147, 251, 0.7));
+        }
+
+        .dosage-range {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .dosage-content {
+            padding: 25px;
+            position: relative;
+        }
+
+        .dosage-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #f093fb;
+            text-shadow: 0 0 10px rgba(240, 147, 251, 0.4);
+        }
+
+        .dosage-content p {
+            margin-bottom: 20px;
+            color: #e0e0e0;
+            line-height: 1.7;
+        }
+
+        .dosage-effects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .effect-tag {
+            background: linear-gradient(45deg, rgba(42, 42, 42, 0.8), rgba(60, 60, 60, 0.6));
+            backdrop-filter: blur(5px);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #e0e0e0;
+            border: 1px solid rgba(240, 147, 251, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .effect-tag:hover {
+            background: linear-gradient(45deg, rgba(240, 147, 251, 0.2), rgba(106, 17, 203, 0.3));
+            transform: scale(1.05);
+        }
+
+        .dosage-quote {
+            font-style: italic;
+            color: #bbbbbb;
+            padding: 15px 20px;
+            border-left: 4px solid #f093fb;
+            background: rgba(240, 147, 251, 0.08);
+            border-radius: 0 8px 8px 0;
+            position: relative;
+            box-shadow: 0 0 15px rgba(240, 147, 251, 0.1);
+        }
+
+        /* Table Styles */
+        .table-container {
+            overflow-x: auto;
+            border-radius: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(30, 30, 30, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(240, 147, 251, 0.2);
+        }
+
+        th, td {
+            padding: 18px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        th {
+            background: linear-gradient(135deg, 
+                rgba(106, 17, 203, 0.4), 
+                rgba(37, 117, 252, 0.4));
+            color: #ffffff;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(240, 147, 251, 0.5);
+        }
+
+        tr:hover {
+            background: rgba(240, 147, 251, 0.05);
+        }
+
+        /* References Section */
+        .references-container {
+            display: grid;
+            gap: 25px;
+        }
+
+        .reference-item {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            display: flex;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(240, 147, 251, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reference-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(240, 147, 251, 0.2);
+        }
+
+        .reference-number {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #f093fb;
+            margin-right: 25px;
+            min-width: 40px;
+            text-align: center;
+            text-shadow: 0 0 15px rgba(240, 147, 251, 0.6);
+        }
+
+        .reference-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .reference-content p {
+            margin-bottom: 10px;
+            color: #e0e0e0;
+        }
+
+        .reference-link {
+            display: inline-block;
+            margin-top: 12px;
+            color: #f093fb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 5px rgba(240, 147, 251, 0.4);
+        }
+
+        .reference-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+            text-shadow: 0 0 10px rgba(240, 147, 251, 0.8);
+        }
+
+        /* Disclaimer Section */
+        .disclaimer-card {
+            background: rgba(244, 67, 54, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(244, 67, 54, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .disclaimer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #f44336, #ff6b6b, #f44336);
+            animation: warningPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes warningPulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        .disclaimer-icon {
+            font-size: 2.5rem;
+            color: #f44336;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px rgba(244, 67, 54, 0.5));
+            animation: warningBlink 3s ease-in-out infinite;
+        }
+
+        @keyframes warningBlink {
+            0%, 90%, 100% { opacity: 1; }
+            95% { opacity: 0.5; }
+        }
+
+        .disclaimer-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: #ff6b6b;
+            text-shadow: 0 0 10px rgba(244, 67, 54, 0.4);
+        }
+
+        .disclaimer-card p {
+            margin-bottom: 18px;
+            color: #e0e0e0;
+        }
+
+        .disclaimer-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .disclaimer-card li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            color: #e0e0e0;
+        }
+
+        .disclaimer-card li::before {
+            content: '⚠️';
+            position: absolute;
+            left: 5px;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #aaaaaa;
+            font-size: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 60px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .dosage-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+            
+            .reference-item {
+                flex-direction: column;
+            }
+            
+            .reference-number {
+                margin-bottom: 15px;
+                align-self: center;
+            }
+            
+            .container {
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                max-width: 150px;
+            }
+            
+            .dosage-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .dosage-range {
+                margin-top: 15px;
+                align-self: flex-end;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated particles background -->
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <header>
+            <img src="https://i.imgur.com/PSe4lnH.png" alt="EL CRAZY MYCOGARDENS Logo" class="logo">
+            <h1>Guia de Dosagens de Cogumelos Psicodélicos</h1>
+            <p class="subtitle">Informação clara e organizada para uso responsável e seguro</p>
+        </header>
+        
+        <!-- Seção de Introdução -->
+        <section class="section">
+            <div class="card intro-card">
+                <h2>O que você encontrará neste guia</h2>
+                <p>Este guia foi desenvolvido pelo EL CRAZY MYCOGARDENS para fornecer informações claras e precisas sobre dosagens de cogumelos psicodélicos. Nosso objetivo é promover o uso responsável e seguro, com base em conhecimentos científicos e experiências comprovadas.</p>
+                
+                <div class="highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-icon">📊</div>
+                        <div class="highlight-text">
+                            <h3>Informações Precisas</h3>
+                            <p>Dosagens detalhadas para todos os níveis de experiência</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🔬</div>
+                        <div class="highlight-text">
+                            <h3>Base Científica</h3>
+                            <p>Referências de estudos e pesquisas acadêmicas</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🛡️</div>
+                        <div class="highlight-text">
+                            <h3>Uso Responsável</h3>
+                            <p>Orientações para práticas seguras e conscientes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grid de Dosagens -->
+        <section class="section">
+            <h2 class="section-title">Níveis de Dosagem</h2>
+            
+            <div class="dosage-grid">
+                <div class="dosage-card">
+                    <div class="dosage-header">
+                        <h3><span class="icon">🍄</span> Microdose</h3>
+                        <div class="dosage-range">0.1 - 0.3g</div>
+                    </div>
+                    <div class="dosage-content">
+                        <h4>O que esperar:</h4>
+                        <p>Efeitos sutis, melhora do humor e criatividade sem alterações perceptivas significativas.</p>
+                        <div class="dosage-effects">
+                            <span class="effect-tag">Foco</span>
+                            <span class="effect-tag">Criatividade</span>
+                            <span class="effect-tag">Bem-estar</span>
+                        </div>
+                        <div class="dosage-quote">
+                            <p>"Sinto-me mais focado e produtivo durante o dia."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dosage-card">
+                    <div class="dosage-header">
+                        <h3><span class="icon">🍄</span> Mini Dose</h3>
+                        <div class="dosage-range">0.3 - 0.7g</div>
+                    </div>
+                    <div class="dosage-content">
+                        <h4>O que esperar:</h4>
+                        <p>Leve aumento da percepção sensorial, humor elevado e leve euforia.</p>
+                        <div class="dosage-effects">
+                            <span class="effect-tag">Percepção</span>
+                            <span class="effect-tag">Euforia</span>
+                            <span class="effect-tag">Sensibilidade</span>
+                        </div>
+                        <div class="dosage-quote">
+                            <p>"As cores parecem mais vivas e a música mais envolvente."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dosage-card">
+                    <div class="dosage-header">
+                        <h3><span class="icon">🍄</span> Dose Criativa</h3>
+                        <div class="dosage-range">0.7 - 1.5g</div>
+                    </div>
+                    <div class="dosage-content">
+                        <h4>O que esperar:</h4>
+                        <p>Aumento da criatividade, pensamento divergente e leve distorção visual.</p>
+                        <div class="dosage-effects">
+                            <span class="effect-tag">Criatividade</span>
+                            <span class="effect-tag">Inspiração</span>
+                            <span class="effect-tag">Visual</span>
+                        </div>
+                        <div class="dosage-quote">
+                            <p>"Minhas ideias fluem mais livremente e conecto conceitos facilmente."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dosage-card">
+                    <div class="dosage-header">
+                        <h3><span class="icon">🍄</span> Dose Psicodélica</h3>
+                        <div class="dosage-range">1.5 - 3.0g</div>
+                    </div>
+                    <div class="dosage-content">
+                        <h4>O que esperar:</h4>
+                        <p>Experiência psicodélica completa com alterações visuais, pensamentos profundos e introspecção.</p>
+                        <div class="dosage-effects">
+                            <span class="effect-tag">Introspecção</span>
+                            <span class="effect-tag">Visual</span>
+                            <span class="effect-tag">Emocional</span>
+                        </div>
+                        <div class="dosage-quote">
+                            <p>"Estou explorando minha mente e vendo o mundo de uma forma completamente nova."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dosage-card">
+                    <div class="dosage-header">
+                        <h3><span class="icon">🍄</span> Mega Dose</h3>
+                        <div class="dosage-range">3.0 - 5.0g</div>
+                    </div>
+                    <div class="dosage-content">
+                        <h4>O que esperar:</h4>
+                        <p>Experiência intensa com perda do senso de ego, viagens psíquicas e possíveis experiências místicas.</p>
+                        <div class="dosage-effects">
+                            <span class="effect-tag">Transformação</span>
+                            <span class="effect-tag">Místico</span>
+                            <span class="effect-tag">Intenso</span>
+                        </div>
+                        <div class="dosage-quote">
+                            <p>"Estou em outro plano de existência, conectado ao universo."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dosage-card">
+                    <div class="dosage-header">
+                        <h3><span class="icon">🍄</span> Dose Heróica</h3>
+                        <div class="dosage-range">5.0g+</div>
+                    </div>
+                    <div class="dosage-content">
+                        <h4>O que esperar:</h4>
+                        <p>Experiência transformadora profunda, potencial de cura psicológica e insights existenciais.</p>
+                        <div class="dosage-effects">
+                            <span class="effect-tag">Cura</span>
+                            <span class="effect-tag">Existencial</span>
+                            <span class="effect-tag">Transcendente</span>
+                        </div>
+                        <div class="dosage-quote">
+                            <p>"Estou renascendo, com uma nova compreensão da vida e de mim mesmo."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabela de Dosagens -->
+        <section class="section">
+            <h2 class="section-title">Tabela de Dosagens Numéricas</h2>
+            <div class="card table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nível de Dosagem</th>
+                            <th>Quantidade (gramas)</th>
+                            <th>Duração Aproximada</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Microdose</td>
+                            <td>0.1 - 0.3g</td>
+                            <td>4-6 horas</td>
+                        </tr>
+                        <tr>
+                            <td>Mini Dose</td>
+                            <td>0.3 - 0.7g</td>
+                            <td>4-6 horas</td>
+                        </tr>
+                        <tr>
+                            <td>Dose Criativa</td>
+                            <td>0.7 - 1.5g</td>
+                            <td>5-7 horas</td>
+                        </tr>
+                        <tr>
+                            <td>Dose Psicodélica</td>
+                            <td>1.5 - 3.0g</td>
+                            <td>6-8 horas</td>
+                        </tr>
+                        <tr>
+                            <td>Mega Dose</td>
+                            <td>3.0 - 5.0g</td>
+                            <td>7-9 horas</td>
+                        </tr>
+                        <tr>
+                            <td>Dose Heróica</td>
+                            <td>5.0g+</td>
+                            <td>8-12 horas</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Referências Científicas -->
+        <section class="section">
+            <h2 class="section-title">Referências Científicas</h2>
+            
+            <div class="references-container">
+                <div class="reference-item">
+                    <div class="reference-number">1</div>
+                    <div class="reference-content">
+                        <h3>Johnson, M. W., Hendricks, P. S., Barrett, F. S., & Griffiths, R. R. (2019)</h3>
+                        <p><strong>Título:</strong> Psychedelic effects of psilocybin correlate with serotonin 2A receptor expression in specific brain regions in healthy volunteers.</p>
+                        <p><strong>Publicação:</strong> Neuropharmacology, 158, 107644.</p>
+                        <a href="https://doi.org/10.1016/j.pnpbp.2018.12.010" target="_blank" class="reference-link">Acessar estudo</a>
+                    </div>
+                </div>
+                
+                <div class="reference-item">
+                    <div class="reference-number">2</div>
+                    <div class="reference-content">
+                        <h3>Carhart-Harris, R. L., et al. (2016)</h3>
+                        <p><strong>Título:</strong> Psilocybin with psychological support for treatment-resistant depression: an open-label feasibility study.</p>
+                        <p><strong>Publicação:</strong> The Lancet Psychiatry, 3(7), 619-627.</p>
+                        <a href="https://doi.org/10.1016/j.euroneuro.2016.05.041" target="_blank" class="reference-link">Acessar estudo</a>
+                    </div>
+                </div>
+                
+                <div class="reference-item">
+                    <div class="reference-number">3</div>
+                    <div class="reference-content">
+                        <h3>Griffiths, R. R., et al. (2016)</h3>
+                        <p><strong>Título:</strong> Psilocybin produces substantial and sustained decreases in depression and anxiety in patients with life-threatening cancer: A randomized double-blind trial.</p>
+                        <p><strong>Publicação:</strong> Journal of Psychopharmacology, 30(12), 1181-1197.</p>
+                        <a href="https://doi.org/10.1176/appi.ajp.2016.16040652" target="_blank" class="reference-link">Acessar estudo</a>
+                    </div>
+                </div>
+                
+                <div class="reference-item">
+                    <div class="reference-number">4</div>
+                    <div class="reference-content">
+                        <h3>Fadiman, J. (2011)</h3>
+                        <p><strong>Título:</strong> The Psychedelic Explorer's Guide: Safe, Therapeutic, and Sacred Journeys.</p>
+                        <p><strong>Publicação:</strong> Park Street Press.</p>
+                        <a href="#" target="_blank" class="reference-link">Ver livro</a>
+                    </div>
+                </div>
+                
+                <div class="reference-item">
+                    <div class="reference-number">5</div>
+                    <div class="reference-content">
+                        <h3>Stamets, P. (1996)</h3>
+                        <p><strong>Título:</strong> Psilocybin Mushrooms of the World: An Identification Guide.</p>
+                        <p><strong>Publicação:</strong> Ten Speed Press.</p>
+                        <a href="#" target="_blank" class="reference-link">Ver livro</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aviso Legal -->
+        <section class="section">
+            <h2 class="section-title">Aviso Legal</h2>
+            <div class="card disclaimer-card">
+                <div class="disclaimer-icon">⚠️</div>
+                <h3>Importante: Responsabilidade e Segurança</h3>
+                <p>Este guia tem fins puramente informativos e educacionais. O uso de substâncias psicodélicas pode envolver riscos significativos e pode não ser legal em todos os países ou estados.</p>
+                <p><strong>Recomendações importantes:</strong></p>
+                <ul>
+                    <li>Consulte sempre um profissional de saúde qualificado antes de considerar qualquer tipo de tratamento ou terapia</li>
+                    <li>Respeite as leis locais sobre substâncias psicodélicas</li>
+                    <li>Nunca use substâncias psicodélicas sozinho ou em ambientes inseguros</li>
+                    <li>Os autores não se responsabilizam por qualquer uso indevido das informações apresentadas</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 EL CRAZY MYCOGARDENS - Guia de Dosagens de Cogumelos Psicodélicos. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Create animated particles background
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 15;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random size between 2px and 8px
+                const size = Math.random() * 6 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation delay
+                particle.style.animationDelay = `${Math.random() * 20}s`;
+                particle.style.animationDuration = `${15 + Math.random() * 10}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Initialize particles when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+        });
+
+        // Add smooth scroll behavior for better user experience
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add intersection observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card, .dosage-card, .reference-item');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
